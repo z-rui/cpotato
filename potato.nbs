@@ -1,0 +1,28 @@
+message Address {
+	host: string
+	port: uint16
+}
+
+message PlayerInfo {
+	id: uint32
+	total: uint32
+	prev: Address
+	next: Address
+}
+
+message TraceEntry {
+	id: uint32
+}
+
+message Potato {
+	ttl: uint32
+	trace: []TraceEntry
+}
+
+// player sends Address to rm
+// rm sends PlayerInfo to player
+// rm sends Potato to player
+// player sends Potato to left or right
+// until ttl=0
+// player sends Potato to rm
+// rm prints the trace

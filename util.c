@@ -82,6 +82,7 @@ init_fdset(fd_set *fds, ...)
 	va_list ap;
 	int nfds = 0, fd;
 
+	FD_ZERO(fds);
 	va_start(ap, fds);
 	for (;;) {
 		fd = va_arg(ap, int);
